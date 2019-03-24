@@ -4,6 +4,10 @@ Following are some of the key points that you should be prepared to answer if yo
 
 2. Explain any performance bottlenecks you identified in your product.
 
+   E.g. a) Microservice creating http client connections in multiple threads, was doing Client.create() over and over, causing lot of memory allocation overhead. Client.create() is a thread safe API and can be created in a Factory class.
+
+        b) Data loader microservice ingesting data to the DB was ingesting data to redundant tables, thereby slowing down the entire data ingestion, increasing latency and decreasing throughput.
+
 3. Explain any performance improvements you recommended.
 
 4. Explain some of the performance issues reported by your customer and how you approached the triage.
