@@ -2,16 +2,16 @@ Following are some of the key points that you should be prepared to answer if yo
 
 1. Explain the product architecture
 
-2. Explain any performance bottlenecks you identified in your product.
+2. Explain any performance bottlenecks you identified in your product and any performance improvements you recommended.
 
    E.g. a) Microservice creating http client connections in multiple threads, was doing Client.create() over and over, causing lot of memory allocation overhead. Client.create() is a thread safe API and can be created in a Factory class.
 
-        b) Data loader microservice ingesting data to the DB was ingesting data to redundant tables, thereby slowing down the entire data ingestion, increasing latency and decreasing throughput.
+        b) Low data ingest throughput - Data loader microservice ingesting data to the DB was ingesting data to redundant tables, thereby slowing down the entire data ingestion, increasing latency and decreasing throughput.
 
-3. Explain any performance improvements you recommended.
+        c) Latency in UI page load - Many UI page sections are loaded through query service calls done from various other dependent services. Some of these query calls were made using filter which fetches more than 50K records. Since in the UI, we will not need high data volume for visualization, we recommended the integrator services to reduce the call batch size to a lower number instead of 50K.
 
-4. Explain some of the performance issues reported by your customer and how you approached the triage.
+3. Explain some of the performance issues reported by your customer and how you approached the triage.
 
-5. How do you start planning for a performance / system test.
+4. How do you start planning for a performance / system test.
 
-6. Explain any project or tool your developed and you are proud of.
+5. Explain any project or tool your developed and you are proud of.
